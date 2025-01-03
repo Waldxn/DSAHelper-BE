@@ -15,7 +15,7 @@ public class AlgorithmService {
 
         for (int i = 0; i < n - 1; i++) {
             boolean swapped = false;
-            for (int j = 0; j < n - 1; j++) {
+            for (int j = 0; j < n - i - 1; j++) {
                 // Swap if current is greater than the next
                 if (array.get(j) > array.get(j + 1)) {
                     int temp = array.get(j);
