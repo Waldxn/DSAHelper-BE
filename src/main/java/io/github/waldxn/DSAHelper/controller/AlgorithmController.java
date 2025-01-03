@@ -8,7 +8,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 import java.util.concurrent.CompletableFuture;
-import java.util.concurrent.ThreadFactory;
 
 @RestController
 @RequestMapping("/api")
@@ -25,7 +24,7 @@ public class AlgorithmController {
 
         CompletableFuture<List<List<Integer>>> resultFuture = new CompletableFuture<>();
 
-        ThreadFactory factory = Thread.ofVirtual()
+        var factory = Thread.ofVirtual()
                 .name("Bubble-Sort-Thread-", 1).factory();
 
         factory.newThread(() -> resultFuture.complete(algorithmService.bubbleSort(array))).start();
@@ -38,7 +37,7 @@ public class AlgorithmController {
 
         CompletableFuture<List<List<Integer>>> resultFuture = new CompletableFuture<>();
 
-        ThreadFactory factory = Thread.ofVirtual()
+        var factory = Thread.ofVirtual()
                 .name("Selection-Sort-Thread-", 1).factory();
 
         factory.newThread(() -> resultFuture.complete(algorithmService.selectionSort(array))).start();
@@ -51,7 +50,7 @@ public class AlgorithmController {
 
         CompletableFuture<List<List<Integer>>> resultFuture = new CompletableFuture<>();
 
-        ThreadFactory factory = Thread.ofVirtual()
+        var factory = Thread.ofVirtual()
                 .name("Merge-Sort-Thread-", 1).factory();
 
         factory.newThread(() -> resultFuture.complete(algorithmService.mergeSort(array))).start();
